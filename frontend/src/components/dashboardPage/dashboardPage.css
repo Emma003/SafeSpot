@@ -1,0 +1,46 @@
+/* dashboardPage.css */
+.map-container {
+  width: 70%;
+  height: 80%;
+  position: fixed;
+  right: 0;
+  /* top: 0; */
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    margin: 0;
+  }
+}
+
+.filters {
+  width: 29.3%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 10px;
+}
+
+.filters label {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+}
