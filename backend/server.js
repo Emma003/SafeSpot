@@ -2,6 +2,8 @@
 require('dotenv').config();
 
 //import express
+const https = require('https');
+const fs = require('fs');
 const express = require('express');
 
 
@@ -11,6 +13,10 @@ const express = require('express');
 
 //start express app
 const app = express();
+const options = {
+    key: fs.readFileSync('server.key'),
+    cert: fs.readFileSync('server.cert')
+};
 
 //global middleware
 app.use(express.json()); //parse json bodies of requests (if it exists) and attaches it to req.body
@@ -22,7 +28,7 @@ app.use((req, res, next) => {
 );
 
 //use routes
-app.use('/home', homeRoutes);
+app.use('/api', homeRoutes);
 
 
 //listen for requests
@@ -30,6 +36,9 @@ app.listen(process.env.PORT, () => { //we only want to listen to requests after 
     console.log('listening on port 8080');
 })
 
+// https.createServer(options, app).listen(process.env.PORT, () => {
+//     console.log("HTTPS Server running on port 8080");
+// });
 
 
 
